@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="font/css/all.min.css" />
+    <style>
+      body {
+        margin: 0;
+      }
+      header {
+        width: 100%;
+        background-image: url(img/img.jpg);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        height: 700px;
+        /*opacity: 0.8;*/
+        /*filter: grayscale(40%);*/
+      }
+
+      .navbar {
+        background-color: none;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+      }
+
+      .nav-logo {
+        font-size: 24px;
+      }
+
+      .navbar-nav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      .nav-li {
+        margin-right: 20px;
+      }
+
+      .nav-li:last-child {
+        margin-right: 0;
+      }
+
+      .nav-li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .navbar-nav li a {
+        transition: 0.8s;
+      }
+      .navbar-nav li a:hover {
+        background-color: #4f46e5;
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 10px;
+      }
+
+      .explore {
+        background-color: #4f46e5;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        color: white;
+        text-decoration: none;
+        transition: 0.8s;
+      }
+
+      .explore:hover {
+        background-color: #899347;
+      }
+
+      .header-content {
+        width: 45%;
+        margin: 10px 0 0 0;
+        /*border: 1px solid white;*/
+        float: right;
+      }
+      .header-content h3 {
+        color: #fff;
+        font-size: 75px;
+        font-weight: bold;
+      }
+
+      .header-content p {
+        font-size: 21px;
+        color: #fff;
+        margin: -40px 0 15px 0;
+      }
+      .header-content p span {
+        margin: 15px 0 0 0;
+      }
+
+      main {
+        width: 60%;
+        padding: 25px;
+        box-sizing: border-box;
+        background-color: #fff;
+        box-shadow: 0px 5px 20px grey;
+        display: flex;
+        justify-content: space-around;
+        margin: -70px auto;
+        border-radius: 30px;
+      }
+      article {
+        width: 40%;
+        /*border: 1px solid black;*/
+        /* margin: 0 0 15px 0; */
+      }
+      article h3 {
+        font-size: 36px;
+        margin: 0px;
+      }
+      article P {
+        font-size: 16px;
+      }
+      article a {
+        text-decoration: none;
+        padding: 7px;
+        box-sizing: border-box;
+        background-color: rgba(169, 126, 255, 0.9);
+        color: #fff;
+        border-radius: 15px;
+        margin: 10px 0 0 0;
+      }
+      aside {
+        width: 50%;
+        height: auto;
+      }
+      aside img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .container-dua {
+        width: 80%;
+        margin: 150px auto;
+        /*border: 1px solid black;*/
+        text-align: center;
+      }
+      .container-dua h3 {
+        font-size: 45px;
+        margin: 0px;
+      }
+      .container-dua p {
+        font-size: 21px;
+      }
+      .container-dua .cari-start {
+        margin: -10px 0 25px 0;
+      }
+      .cari {
+        width: 80%;
+        padding: 15px;
+        box-sizing: border-box;
+        box-shadow: 1px 2px 3px grey;
+        margin: auto;
+        border-radius: 30px;
+      }
+      .cari input {
+        width: 80%;
+        height: 40px;
+        border-radius: 30px;
+        border: none;
+        color: rgba(169, 126, 255, 0.9);
+        /*box-shadow: 1px 2px 3px pink;*/
+        outline: none;
+      }
+
+      @media (max-width: 900px) {
+        header {
+          /*border: 1px solid black;*/
+          height: 350px;
+        }
+        .header-content {
+          width: 100%;
+          margin: -15px 0 0 0;
+          /*border: 1px solid rgba(169, 126, 255, 0.9) ;*/
+          text-align: center;
+        }
+
+        .navbar-nav {
+          /* display: flex; */
+          /* flex-direction: column; */
+          margin: 0 0 0 10px;
+          text-decoration: none;
+          /* background-color: #4caf50; */
+          /* position: absolute; */
+        }
+
+        .navbar-nav.active {
+          display: flex;
+        }
+
+        .navbar-toggle:checked + .navbar-nav {
+          display: flex;
+        }
+
+        .nav-li {
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+        .navbar-nav li a {
+          margin: 0 0 0 15px;
+        }
+        .header-content h3 {
+          font-size: 32px;
+        }
+        .header-content p {
+          font-size: 16px;
+          margin: 0 0 20px 0;
+        }
+        main {
+          width: 80%;
+          margin: 15px auto;
+          border: 1px solid black;
+        }
+        aside {
+          display: none;
+        }
+        article {
+          width: 100%;
+        }
+        article h3 {
+          font-size: 21px;
+        }
+        .container-dua {
+          margin: 30px auto;
+        }
+        .container-dua h3 {
+          font-size: 32px;
+        }
+        .container-dua p {
+          font-size: 16px;
+        }
+        .cari {
+          width: 100%;
+          padding: 10px;
+        }
+      }
+
+      .container-tiga {
+        width: 80%;
+        margin: 30px auto;
+        /*border: 1px solid black;*/
+      }
+      .container-tiga h3 {
+        font-size: 32px;
+      }
+      .tiga-banyak {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+      .box-tiga {
+        width: 22%;
+        padding: 20px;
+        box-sizing: border-box;
+        /*border: 1px solid black;*/
+        margin: 30px 0 50px 0;
+        background-color: #fff;
+        box-shadow: 0px 5px 20px grey;
+        border-radius: 30px;
+      }
+      .box-tiga img {
+        width: 100%;
+        margin: 0 0 15px 0;
+        box-shadow: 0px 5px 20px grey;
+        height: 200px;
+      }
+      .box-tiga h5 {
+        font-size: 21px;
+        margin: 0px;
+        font-weight: bold;
+      }
+      .box-flex {
+        display: flex;
+        justify-content: space-between;
+      }
+      .box-tiga button {
+        width: 100%;
+        height: 30px;
+        background-color: rgba(169, 126, 255, 0.9);
+        color: #fff;
+        border-radius: 10px;
+        transition: 0.7s;
+      }
+
+      .box-tiga button:hover {
+        background-color: #333;
+      }
+      footer {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        background-color: rgba(169, 126, 255, 0.9);
+        color: #fff;
+        display: flex;
+      }
+      footer p {
+        margin: auto;
+      }
+      @media (max-width: 600px) {
+        .box-tiga {
+          width: 100%;
+        }
+      }
+
+      .container-kontak {
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        background-color: #fff;
+        padding: 20px;
+        box-sizing: border-box;
+        box-shadow: 0px 5px 20px grey;
+        margin: 30px auto;
+        flex-wrap: wrap;
+        border-radius: 10px;
+      }
+
+      .kiri-kontak {
+        width: 45%;
+      }
+      .kiri-kontak img {
+        width: 100%;
+      }
+      .kanan-kontak {
+        width: 45%;
+        display: flex;
+      }
+      .tengah-kontak {
+        margin: auto;
+      }
+      .tengah-kontak button {
+        width: 100%;
+        background-color: #4f46e5;
+        border-radius: 20px;
+        color: #fff;
+        transition: 0.8s;
+      }
+
+      .tengah-kontak button:hover {
+        background-color: #333;
+      }
+
+      .tulisan-desti {
+        text-align: center;
+        margin: 20px auto;
+        width: 80%;
+        padding: 10px;
+        font-family: "opensans";
+      }
+      .tulisan-desti h3 {
+        font-size: 48px;
+        margin: 0 0 9px 0;
+        font-family: "opensans";
+      }
+      .tulisan-desti .p2 {
+        font-family: "opensans";
+      }
+      .tulisan-desti .p1 {
+        font-size: 18px;
+        color: rgb(21, 1, 229);
+        font-weight: bold;
+        font-family: "opensans";
+      }
+      @media (max-width: 800px) {
+        .tulisan-desti h3 {
+          font-size: 36px;
+        }
+        .tulisan-desti .p2 {
+          font-size: 13px;
+        }
+        .kiri-kontak {
+          width: 100%;
+        }
+        .kanan-kontak {
+          width: 100%;
+        }
+      }
+
+      .container-empat {
+        width: 80%;
+        margin: 30px auto;
+        background: linear-gradient(
+            152.03deg,
+            rgba(203, 176, 255, 0.9) 18.75%,
+            rgba(169, 126, 255, 0.9) 132.08%
+          ),
+          url(img/gambar.jpg) no-repeat 50%;
+        background-size: cover;
+        text-align: center;
+        height: 300px;
+        border-radius: 30px;
+        display: flex;
+
+        box-shadow: 0px 5px 20px grey;
+      }
+      .flex-empat {
+        width: 100%;
+        margin: auto;
+      }
+      .container-empat h3 {
+        color: #fff;
+        font-weight: bold;
+        margin: auto;
+        font-size: 35px;
+        font-family: "opensans";
+      }
+      .container-empat .tombol {
+        background-color: #f0e8fd;
+        padding: 10px;
+        width: 15%;
+        box-sizing: border-box;
+        color: #73688a;
+        border-radius: 15px;
+        font-size: 23px;
+        font-family: "opensans";
+        transition: 0.8s;
+      }
+      .container-empat .tombol:hover {
+        padding: 15px;
+      }
+
+      .container-ex {
+        width: 80%;
+        margin: 100px auto;
+      }
+      .kalimat-ex h5 {
+        font-size: 18px;
+        color: #4f46e5;
+      }
+      .kalimat-ex h3 {
+        font-size: 48px;
+        margin: -25px 0 0 0;
+      }
+      .div-ex {
+        margin: 25px auto;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        box-shadow: 0px 5px 20px grey;
+      }
+      .div-ex button {
+        width: 100%;
+        background-color: #4f46e5;
+        border-radius: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        color: #fff;
+        transition: 0.8s;
+      }
+      .div-ex button:hover {
+        background-color: #333;
+      }
+      @media (max-width: 800px) {
+        .kalimat-ex h5 {
+          font-size: 16px;
+        }
+        .kalimat-ex h3 {
+          font-size: 28px;
+        }
+      }
+
+      @media (max-width: 800px) {
+        .container-empat {
+          margin: 5px 0 0 50px;
+        }
+        .container-empat h3 {
+          font-size: 23px;
+        }
+        .container-empat .tombol {
+          width: 70%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="nav-logo">Explore</div>
+        <ul class="navbar-nav">
+          <li class="nav-li active"><a href="#">Home</a></li>
+          <li class="nav-li"><a href="#about">about</a></li>
+          <li class="nav-li"><a href="#destination">Destination</a></li>
+          <li class="nav-li"><a href="#contact">Kontak</a></li>
+        </ul>
+      </nav>
+
+      <section class="header-content">
+        <h3>
+          Explore the Beauty <br />
+          of Journey
+        </h3>
+
+        <p>
+          Travelling isn't always about running away from things <br />
+          <span
+            >Sometimes it's about running into what<br />
+            you truly want</span
+          >
+        </p>
+        <div class="explore.div">
+          <a href="" class="explore">Explore now</a>
+        </div>
+      </section>
+    </header>
+    <main id="about">
+      <article>
+        <h3>Top Reason Come to Bali</h3>
+        <p>
+          Who does not know Bali?, I am sure from all of you already know the
+          island of Bali. Maybe even, there is already a memorized about tourist
+          attractions on the island of Bali. Although some have never visited
+          tourist destinations of indonesia on this one. This time the Twisata
+          will invite you to know more the natural beauty that can be found on
+          the island of Bali is primarily for those of you who have never been
+          here.
+        </p>
+      </article>
+      <aside>
+        <img src="img/gambar.jpg" />
+      </aside>
+    </main>
+
+    <section class="container-ex">
+      <article class="kalimat-ex">
+        <h5>ABOUT US</h5>
+        <br />
+        <h3>Why should we explore?</h3>
+      </article>
+      <article class="div-ex">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam
+          aspernatur, possimus odio asperiores consectetur minima perferendis
+          atque nisi illo. Tempore, nulla molestiae? Temporibus ipsa incidunt
+          cumque a atque vel ducimus. Lorem ipsum dolor sit, amet consectetur
+          adipisicing elit. Necessitatibus sunt minus, quas illo in temporibus
+          nostrum totam perspiciatis natus nemo, ad blanditiis doloremque ex.
+          Quasi voluptatem iure velit fugit explicabo? Lorem ipsum dolor sit
+          amet consectetur adipisicing elit. Placeat blanditiis expedita
+          doloribus, repellat nam a eius odio suscipit minima, neque qui rerum
+          autem magni fugiat praesentium nobis laborum. Optio, velit?
+
+          <br />
+          <br />
+
+          nostrum totam perspiciatis natus nemo, ad blanditiis doloremque ex.
+          Quasi voluptatem iure velit fugit explicabo? Lorem ipsum dolor sit
+          amet consectetur adipisicing elit. Placeat blanditiis expedita
+          doloribus, repellat nam a eius odio suscipit minima, neque qui rerum
+          autem magni fugiat praesentium nobis laborum. Optio, velit? Lorem
+          ipsum dolor sit amet consectetur adipisicing elit.
+        </p>
+
+        <button>Click now</button>
+      </article>
+      <br />
+    </section>
+
+    <section class="container-dua">
+      <h3>Populer beauty destinasty forest</h3>
+      <p>Explore your holiday favorite destinasty in the world</p>
+      <p class="cari-start">Lets start now</p>
+
+      <div class="cari">
+        <input type="text" placeholder="Explore now... " />
+        <i class="fa-solid fa-magnifying-glass" style="font-size: 21px"></i>
+      </div>
+    </section>
+
+    <section class="tulisan-desti" id="destination">
+      <h3>
+        Destinastion favorite <br />
+        by Explore
+      </h3>
+    </section>
+
+    <section class="container-tiga">
+      <div class="tiga-banyak">
+        <article class="box-tiga">
+          <img src="img/img.jpg" />
+          <h5>Nusa Penida</h5>
+
+          <div class="box-flex">
+            <p>
+              <i
+                class="fa-solid fa-location-dot"
+                style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+              ></i>
+              Indonesia
+            </p>
+            <p>
+              <span style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+                >$24</span
+              >/Person
+            </p>
+          </div>
+          <button>Ordered now</button>
+        </article>
+
+        <article class="box-tiga">
+          <img src="img/gambar.jpg" />
+          <h5>Bali</h5>
+
+          <div class="box-flex">
+            <p>
+              <i
+                class="fa-solid fa-location-dot"
+                style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+              ></i>
+              Indonesia
+            </p>
+            <p>
+              <span style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+                >$24</span
+              >/Person
+            </p>
+          </div>
+          <button>Ordered now</button>
+        </article>
+
+        <article class="box-tiga">
+          <img src="img/img.jpg" />
+          <h5>Nusa Penida</h5>
+
+          <div class="box-flex">
+            <p>
+              <i
+                class="fa-solid fa-location-dot"
+                style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+              ></i>
+              Indonesia
+            </p>
+            <p>
+              <span style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+                >$24</span
+              >/Person
+            </p>
+          </div>
+          <button>Ordered now</button>
+        </article>
+
+        <article class="box-tiga">
+          <img src="img/gambar.jpg" />
+          <h5>Bali</h5>
+
+          <div class="box-flex">
+            <p>
+              <i
+                class="fa-solid fa-location-dot"
+                style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+              ></i>
+              Indonesia
+            </p>
+            <p>
+              <span style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+                >$24</span
+              >/Person
+            </p>
+          </div>
+          <button>Ordered now</button>
+        </article>
+
+        <article class="box-tiga">
+          <img src="img/img.jpg" />
+          <h5>Nusa Penida</h5>
+
+          <div class="box-flex">
+            <p>
+              <i
+                class="fa-solid fa-location-dot"
+                style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+              ></i>
+              Indonesia
+            </p>
+            <p>
+              <span style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+                >$24</span
+              >/Person
+            </p>
+          </div>
+          <button>Ordered now</button>
+        </article>
+        <article class="box-tiga">
+          <img src="img/gambar.jpg" />
+          <h5>Bali</h5>
+
+          <div class="box-flex">
+            <p>
+              <i
+                class="fa-solid fa-location-dot"
+                style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+              ></i>
+              Indonesia
+            </p>
+            <p>
+              <span style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+                >$24</span
+              >/Person
+            </p>
+          </div>
+          <button>Ordered now</button>
+        </article>
+
+        <article class="box-tiga">
+          <img src="img/img.jpg" />
+          <h5>Nusa Penida</h5>
+
+          <div class="box-flex">
+            <p>
+              <i
+                class="fa-solid fa-location-dot"
+                style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+              ></i>
+              Indonesia
+            </p>
+            <p>
+              <span style="color: rgba(169, 126, 255, 0.9); font-size: 16px"
+                >$24</span
+              >/Person
+            </p>
+          </div>
+          <button>Ordered now</button>
+        </article>
+      </div>
+    </section>
+
+    <section class="tulisan-desti" id="contact">
+      <p class="p1">CONTACT DESCRIPTION</p>
+      <br />
+      <h3>Let's Join us!</h3>
+    </section>
+
+    <section class="container-kontak">
+      <aside class="kiri-kontak">
+        <img src="img/img.jpg" />
+      </aside>
+
+      <aside class="kanan-kontak">
+        <div class="tengah-kontak">
+          <table>
+            <tr>
+              <td>Full name :</td>
+              <td>
+                <input type="text" name="" placeholder="Input Nama Lengkap.." />
+              </td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td><br /></td>
+            </tr>
+
+            <tr>
+              <td>Email :</td>
+              <td><input type="text" name="" placeholder="Input Email" /></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td><br /></td>
+            </tr>
+
+            <tr>
+              <td>Note :</td>
+              <td><textarea placeholder="Input Catatan.."></textarea></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td><br /></td>
+            </tr>
+
+            <tr>
+              <td></td>
+              <td><button>Send</button></td>
+            </tr>
+          </table>
+          <br />
+
+          <br />
+        </div>
+      </aside>
+    </section>
+
+    <br /><br /><br />
+
+    <section class="container-empat">
+      <article class="flex-empat">
+        <h3>
+          Temukan Berbagai Keberagaman <br />
+          Di Negara Indonesia
+        </h3>
+        <br />
+        <button class="tombol">Click here</button>
+      </article>
+    </section>
+    <br /><br />
+
+    <footer>
+      <p>Created by - jovanka alexandro - dicoding</p>
+    </footer>
+
+    <script type="text/javascript" src="font/js/all.min.js"></script>
+    <script>
+      const tombol = document.querySelector(".tombol");
+      tombol.addEventListener("click", () => {
+        setTimeout(() => {
+          tombol.style.backgroundColor = "rgba(169, 126, 255, 0.9) ";
+          tombol.style.color = "white";
+        }, 1000);
+      });
+    </script>
+  </body>
+</html>
